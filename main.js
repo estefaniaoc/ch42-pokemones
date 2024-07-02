@@ -1,24 +1,23 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import './styles.scss'
+import './src/components/navbar/navbar-app'
+import { navbarApp } from './src/components/navbar/navbar-app.js'
+
+document.querySelector("#navbar-app").innerHTML= navbarApp();
 
 document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
+  <div class="container text-center">
+    <h1 class="bg-warning">Día de Emos</h1>
+    <button class="btn btn-warning" >Click me</button>
   </div>
 `
+const changeMain = () =>{
+   setInterval( ()=>{
+    document.querySelector('#app').innerHTML = `
+      <div class="container text-center">
+        <h1 class="bg-info">Día de Bolillo y Chocolate</h1>
+      </div>
+    `
+   }, 8000  );
+}
 
-setupCounter(document.querySelector('#counter'))
+changeMain();
